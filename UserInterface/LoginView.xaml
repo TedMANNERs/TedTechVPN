@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="UserInterface.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+    <Grid Margin="30,100,30,0">
+        <StackPanel Orientation="Vertical">
+            <Label Content="Login" />
+            <Border BorderBrush="Black" BorderThickness="2" Padding="10">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Username"/>
+                    <TextBox Text="{Binding Username}" MinWidth="130" MinHeight="25"/>
+                    <Label Content="Password"/>
+                    <PasswordBox Name="VpnPasswordBox" MinWidth="130" MinHeight="25"/>
+                </StackPanel>
+            </Border>
+            <Button Content="Login" Margin="0,5,0,0" MinHeight="30" Command="{Binding LoginCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

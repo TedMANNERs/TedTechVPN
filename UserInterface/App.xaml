@@ -1,8 +1,14 @@
 ﻿<Application x:Class="UserInterface.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MainWindow.xaml">
+             xmlns:namespace="clr-namespace:UserInterface"
+             StartupUri="MainView.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type namespace:AppViewModel}">
+            <namespace:AppView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type namespace:LoginViewModel}">
+            <namespace:LoginView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>
