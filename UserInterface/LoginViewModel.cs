@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Input;
+using Model;
 
 namespace UserInterface
 {
