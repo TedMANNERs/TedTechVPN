@@ -1,6 +1,4 @@
-using System;
 using System.Windows.Input;
-using Model;
 
 namespace UserInterface
 {
@@ -15,7 +13,7 @@ namespace UserInterface
 
         private void Login()
         {
-            throw new NotImplementedException();
+            OnSwitch(new SwitchViewEventArgs(new AppViewModel {Username = Username}));
         }
     }
 }

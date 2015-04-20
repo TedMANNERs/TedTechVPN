@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SwitchViewEventArgs.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Page Include="AppView.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -7,22 +7,22 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Margin="15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+
         <DockPanel Grid.Row="0" Height="30" LastChildFill="False" Margin="0, 5">
-            <Button Content="Logout" DockPanel.Dock="Left" Width="50" Command="{Binding LogoutCommand}"/>
-            <Button Content="+" DockPanel.Dock="Right" Width="30" Command="{Binding NewCommand}"/>
-            <Button Content="-" DockPanel.Dock="Right" Width="30" Margin="10,0" Command="{Binding RemoveCommand}"/>
+            <Button Content="Logout" DockPanel.Dock="Left" Width="50" Command="{Binding LogoutCommand}" />
+            <Button Content="+" DockPanel.Dock="Right" Width="30" Command="{Binding NewCommand}" />
+            <Button Content="-" DockPanel.Dock="Right" Width="30" Margin="10,0" Command="{Binding RemoveCommand}" />
         </DockPanel>
-        <ListBox Grid.Row="1" ItemsSource="{Binding VpnConnections}"></ListBox>
-        <Button Grid.Row="2" Content="Connect" Margin="0, 10" Height="40"/>
-        <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Label Content="User: "/>
-            <TextBox Text="{Binding Username}" HorizontalAlignment="Stretch" IsEnabled="False"/>
-        </StackPanel>
+        <ListBox Grid.Row="1" ItemsSource="{Binding VpnConnections}" />
+        <Button Grid.Row="2" Content="Connect" Margin="0, 10" Height="40" />
+        <DockPanel Grid.Row="3" HorizontalAlignment="Stretch">
+            <Label Content="User: " />
+            <TextBox Text="{Binding Username}" IsEnabled="False" />
+        </DockPanel>
     </Grid>
 </UserControl>
