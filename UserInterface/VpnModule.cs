@@ -6,7 +6,7 @@ namespace UserInterface
     {
         public override void Load()
         {
-            Bind<ViewModelBase>().To<MainViewModel>().InSingletonScope().OnActivation(x => x.Load());
+            Bind<ViewModelBase>().To<MainViewModel>().InSingletonScope();
             Bind<ViewModelBase>().To<LoginViewModel>().InSingletonScope();
             Bind<ViewModelBase>().To<AppViewModel>().InSingletonScope();
         }
