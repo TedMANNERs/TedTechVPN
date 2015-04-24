@@ -12,7 +12,7 @@
                     <Label Content="Username" />
                     <TextBox Text="{Binding Username}" MinWidth="130" MinHeight="25" />
                     <Label Content="Password" />
-                    <PasswordBox Name="VpnPasswordBox" MinWidth="130" MinHeight="25" />
+                    <PasswordBox Name="VpnPasswordBox" MinWidth="130" MinHeight="25" PasswordChanged="VpnPasswordBox_PasswordChanged" />
                 </StackPanel>
             </Border>
             <Button Content="Login" Margin="0,5,0,0" MinHeight="30" Command="{Binding LoginCommand}" />
