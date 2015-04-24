@@ -1,8 +1,13 @@
 using System;
+using System.Globalization;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
 using System.Windows.Input;
+using Model;
 
 namespace UserInterface
 {
@@ -19,9 +24,18 @@ namespace UserInterface
 
         private void Login()
         {
-            byte[] salt = GenerateSalt();
-            byte[] hash = Hash(salt);
-            RequestSwitch(new SwitchViewEventArgs("App"));
+            if (Password == null || Password.Length <= 0) return;
+
+            UnicodeEncoding encoding = new UnicodeEncoding();
+            using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
+            {
+                User user = dbContext.User.FirstOrDefault(u => u.Name == Username);
+                if (user != null && user.Password == encoding.GetString(Hash(encoding.GetBytes(user.Salt))))
+                {
+                    Console.WriteLine("Success");
+                    RequestSwitch(new SwitchViewEventArgs("App"));
+                }
+            }
         }
 
         private byte[] Hash(byte[] salt)
