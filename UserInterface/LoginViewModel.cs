@@ -1,11 +1,9 @@
 using System;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
 using System.Windows.Input;
 using Model;
 
@@ -26,64 +24,19 @@ namespace UserInterface
         {
             if (Password == null || Password.Length <= 0) return;
 
+            IPasswordProvider provider = new PasswordProvider();
             UnicodeEncoding encoding = new UnicodeEncoding();
+
             using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
             {
                 User user = dbContext.User.FirstOrDefault(u => u.Name == Username);
-                if (user != null && user.Password == encoding.GetString(Hash(encoding.GetBytes(user.Salt))))
+                
+                if (user != null && user.Password == encoding.GetString(provider.Hash(Password, encoding.GetBytes(user.Salt))))
                 {
                     Console.WriteLine("Success");
                     RequestSwitch(new SwitchViewEventArgs("App"));
                 }
             }
-        }
-
-        private byte[] Hash(byte[] salt)
-        {
-            HashAlgorithm algorithm = new SHA512Cng();
-            byte[] hash = new byte[Password.Length + salt.Length];
-            byte[] passwordBytes = SecureStringToByteArray();
-
-            for (int i = 0; i < passwordBytes.Length; ++i)
-            {
-                hash[i] = passwordBytes[i];
-            }
-
-            for (int i = 0; i < salt.Length; ++i)
-            {
-                hash[passwordBytes.Length + 1] = salt[i];
-            }
-
-            return algorithm.ComputeHash(hash);
-        }
-
-        private byte[] SecureStringToByteArray()
-        {
-            IntPtr unmanagedString = IntPtr.Zero;
-            try
-            {
-                byte[] result = new byte[Password.Length];
-                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(Password);
-                for (int i = 0; i < Password.Length; ++i)
-                {
-                    result[i] = Marshal.ReadByte(unmanagedString, i * 2);
-                    //result[i + 1] = Marshal.ReadByte(unmanagedString, i * 2 + 1);
-                }
-
-                return result;
-            }
-            finally
-            {
-                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-            }
-        }
-
-        private byte[] GenerateSalt()
-        {
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            byte[] bytes = new byte[32];
-            rng.GetNonZeroBytes(bytes);
-            return bytes;
         }
     }
 }

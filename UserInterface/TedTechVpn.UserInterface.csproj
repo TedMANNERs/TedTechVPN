@@ -65,6 +65,7 @@
     </ApplicationDefinition>
     <Compile Include="IViewModel.cs" />
     <Compile Include="IViewModelSwitcher.cs" />
+    <Compile Include="PasswordProvider.cs" />
     <Compile Include="ViewModelSwitcher.cs" />
     <Compile Include="VpnKernel.cs" />
     <Compile Include="VpnModule.cs" />
