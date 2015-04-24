@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IViewModel.cs" />
+    <Compile Include="IViewModelSwitcher.cs" />
+    <Compile Include="ViewModelSwitcher.cs" />
     <Compile Include="VpnKernel.cs" />
     <Compile Include="VpnModule.cs" />
     <Compile Include="SwitchViewEventArgs.cs" />

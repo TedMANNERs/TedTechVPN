@@ -4,11 +4,11 @@ namespace UserInterface
 {
     public class SwitchViewEventArgs : EventArgs
     {
-        public SwitchViewEventArgs(ViewModelBase viewModel)
+        public SwitchViewEventArgs(string viewModel)
         {
             ViewModel = viewModel;
         }
 
-        public ViewModelBase ViewModel { get; set; }
+        public string ViewModel { get; set; }
     }
 }

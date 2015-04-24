@@ -7,7 +7,7 @@
     <Grid Margin="30,100,30,0">
         <StackPanel Orientation="Vertical">
             <Label Content="Login" />
-            <Border BorderBrush="Black" BorderThickness="2" Padding="10">
+            <Border BorderBrush="Black" BorderThickness="1" Padding="10">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Username" />
                     <TextBox Text="{Binding Username}" MinWidth="130" MinHeight="25" />

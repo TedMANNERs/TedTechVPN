@@ -2,10 +2,11 @@ using System.Windows.Input;
 
 namespace UserInterface
 {
-    public class LoginViewModel : ViewModelBase
+    public class LoginViewModel : ViewModelBase, IViewModel
     {
         public LoginViewModel()
         {
+            Name = "Login";
             LoginCommand = new DelegateCommand(obj => Login(), () => !string.IsNullOrEmpty(Username));
         }
 
@@ -13,9 +14,7 @@ namespace UserInterface
 
         private void Login()
         {
-            AppViewModel appViewModel = VpnKernel.Get<AppViewModel>();
-            appViewModel.Username = Username;
-            OnSwitch(new SwitchViewEventArgs(appViewModel));
+            RequestSwitch(new SwitchViewEventArgs("App"));
         }
     }
 }

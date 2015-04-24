@@ -4,7 +4,7 @@ using UserInterface.Annotations;
 
 namespace UserInterface
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public delegate void SwitchViewEventHandler(object sender, SwitchViewEventArgs e);
 
@@ -20,17 +20,19 @@ namespace UserInterface
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public event SwitchViewEventHandler Switch;
+        public string Name { get; set; }
 
-        protected virtual void OnSwitch(SwitchViewEventArgs e)
+        protected virtual void RequestSwitch(SwitchViewEventArgs e)
         {
             SwitchViewEventHandler eventHandler = Switch;
             if (eventHandler != null) eventHandler(this, e);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public event SwitchViewEventHandler Switch;
+
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));

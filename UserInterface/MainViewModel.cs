@@ -1,36 +1,12 @@
-﻿using System.Windows.Input;
-
-namespace UserInterface
+﻿namespace UserInterface
 {
     public class MainViewModel : ViewModelBase
     {
-        private ViewModelBase _currentView;
-
         public MainViewModel()
         {
-            AppViewModel appViewModel = VpnKernel.Get<AppViewModel>();
-            appViewModel.Switch += SwitchView;
-            LoginViewModel loginViewModel = VpnKernel.Get<LoginViewModel>();
-            loginViewModel.Switch += SwitchView;
-            CurrentView = loginViewModel;
+            Switcher = VpnKernel.Get<IViewModelSwitcher>();
         }
 
-        public ViewModelBase CurrentView
-        {
-            get { return _currentView; }
-            set
-            {
-                _currentView = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public ICommand ViewLoginCommand { get; set; }
-        public ICommand ViewAppCommand { get; set; }
-
-        private void SwitchView(object sender, SwitchViewEventArgs e)
-        {
-            CurrentView = e.ViewModel;
-        }
+        public IViewModelSwitcher Switcher { get; private set; }
     }
 }

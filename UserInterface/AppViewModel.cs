@@ -5,10 +5,11 @@ using Model;
 
 namespace UserInterface
 {
-    public class AppViewModel : ViewModelBase
+    public class AppViewModel : ViewModelBase, IViewModel
     {
         public AppViewModel()
         {
+            Name = "App";
             VpnConnections = new ObservableCollection<VpnConnection>();
             LogoutCommand = new DelegateCommand(obj => Logout(), () => true);
             NewCommand = new DelegateCommand(obj => CreateConnection(), () => true);
@@ -40,8 +41,7 @@ namespace UserInterface
 
         private void Logout()
         {
-            LoginViewModel loginViewModel = VpnKernel.Get<LoginViewModel>();
-            OnSwitch(new SwitchViewEventArgs(loginViewModel));
+            RequestSwitch(new SwitchViewEventArgs("Login"));
         }
     }
 }

@@ -60,6 +60,6 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <ContentControl Content="{Binding CurrentView}" Margin="0, 20, 0, 0" />
+        <ContentControl Content="{Binding Switcher.CurrentView}" Margin="0, 20, 0, 0" />
     </Grid>
 </Window>
