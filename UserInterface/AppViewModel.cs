@@ -35,12 +35,13 @@ namespace UserInterface
 
         private void RemoveConnection()
         {
-            throw new NotImplementedException();
+            VpnConnections.Remove(SelectedConnection);
         }
 
         private void Logout()
         {
-            throw new NotImplementedException();
+            LoginViewModel loginViewModel = VpnKernel.Get<LoginViewModel>();
+            OnSwitch(new SwitchViewEventArgs(loginViewModel));
         }
     }
 }

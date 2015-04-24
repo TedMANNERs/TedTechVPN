@@ -8,7 +8,9 @@ namespace UserInterface
 
         public MainViewModel()
         {
-            LoginViewModel loginViewModel = new LoginViewModel();
+            AppViewModel appViewModel = VpnKernel.Get<AppViewModel>();
+            appViewModel.Switch += SwitchView;
+            LoginViewModel loginViewModel = VpnKernel.Get<LoginViewModel>();
             loginViewModel.Switch += SwitchView;
             CurrentView = loginViewModel;
         }

@@ -13,7 +13,9 @@ namespace UserInterface
 
         private void Login()
         {
-            OnSwitch(new SwitchViewEventArgs(new AppViewModel {Username = Username}));
+            AppViewModel appViewModel = VpnKernel.Get<AppViewModel>();
+            appViewModel.Username = Username;
+            OnSwitch(new SwitchViewEventArgs(appViewModel));
         }
     }
 }
