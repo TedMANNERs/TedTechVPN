@@ -1,7 +1,4 @@
-﻿using Core;
-using Ninject.Modules;
-
-namespace UserInterface
+﻿namespace TedTechVpn.Core
 {
     public class VpnModule : NinjectModule
     {
@@ -13,8 +10,6 @@ namespace UserInterface
             Bind<ViewModelBase>().To<MainViewModel>().InSingletonScope();
             Bind<ViewModelBase>().To<LoginViewModel>().InSingletonScope();
             Bind<ViewModelBase>().To<AppViewModel>().InSingletonScope();
-            Bind<IPasswordProvider>().To<PasswordProvider>();
-            Bind<IVpnConnectionProvider>().To<VpnConnectionProvider>();
         }
     }
 }

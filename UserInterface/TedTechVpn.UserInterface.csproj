@@ -65,12 +65,11 @@
     </ApplicationDefinition>
     <Compile Include="IViewModel.cs" />
     <Compile Include="IViewModelSwitcher.cs" />
-    <Compile Include="PasswordProvider.cs" />
     <Compile Include="ViewModelSwitcher.cs" />
-    <Compile Include="VpnKernel.cs" />
-    <Compile Include="VpnModule.cs" />
     <Compile Include="SwitchViewEventArgs.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="VpnKernel.cs" />
+    <Compile Include="VpnModule.cs" />
     <Page Include="AppView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +134,10 @@
     <ProjectReference Include="..\Model\TedTechVpn.Model.csproj">
       <Project>{b3d5a9d9-6cb2-4906-a79d-27f9679689a0}</Project>
       <Name>TedTechVpn.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\TedTechVpn.Core.csproj">
+      <Project>{7FA65C0D-8662-474C-8E04-1C391B7B48E8}</Project>
+      <Name>TedTechVpn.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

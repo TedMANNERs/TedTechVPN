@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 
-namespace UserInterface
+namespace Core
 {
     public class PasswordProvider : IPasswordProvider
     {
@@ -55,12 +55,5 @@ namespace UserInterface
             return bytes;
         }
 
-    }
-
-    public interface IPasswordProvider
-    {
-        byte[] Hash(SecureString password, byte[] salt);
-        byte[] SecureStringToByteArray(SecureString password);
-        byte[] GenerateSalt();
     }
 }

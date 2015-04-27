@@ -3,6 +3,7 @@ using System.Linq;
 using System.Security;
 using System.Text;
 using System.Windows.Input;
+using Core;
 using Model;
 
 namespace UserInterface
