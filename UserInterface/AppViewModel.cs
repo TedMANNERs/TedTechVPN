@@ -1,4 +1,3 @@
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -44,7 +43,6 @@ namespace UserInterface
             }
         }
 
-
         public void Load()
         {
             using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
@@ -56,6 +54,7 @@ namespace UserInterface
         private void Connect()
         {
             IsConnected = _vpnProvider.Connect(SelectedConnection);
+            SelectedConnection.HasError = !IsConnected;
         }
 
         private void Disconnect()

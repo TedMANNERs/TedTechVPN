@@ -55,6 +55,7 @@
     <Compile Include="VpnConnection.cs">
       <DependentUpon>VpnModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VpnConnection.Info.cs" />
     <Compile Include="VpnModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

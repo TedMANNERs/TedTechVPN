@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using DotRas;
 using Model;
 
@@ -36,7 +35,7 @@ namespace Core
                 if (_entry != null)
                 {
                     _dialer.EntryName = _entry.Name;
-                    _dialer.DialAsync();
+                    _dialer.Dial();
                     return true;
                 }
             }

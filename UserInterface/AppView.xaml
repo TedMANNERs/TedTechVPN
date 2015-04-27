@@ -28,16 +28,24 @@
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
                     <Style.Triggers>
-                        <DataTrigger
-                            Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsConnected}"
-                            Value="False">
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition
+                                    Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsConnected}"
+                                    Value="False" />
+                                <Condition Binding="{Binding HasError}" Value="True" />
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="LightCoral" />
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsConnected}"
-                            Value="True">
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition
+                                    Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsConnected}"
+                                    Value="True" />
+                                <Condition Binding="{Binding HasError}" Value="False" />
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="LightGreen" />
-                        </DataTrigger>
+                        </MultiDataTrigger>
                     </Style.Triggers>
                 </Style>
             </DataGrid.RowStyle>
