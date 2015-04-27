@@ -28,14 +28,12 @@
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding HasError}" Value="True" >
+                        <DataTrigger Binding="{Binding HasError}" Value="True">
                             <Setter Property="Background" Value="LightCoral" />
                         </DataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
-                                <Condition
-                                    Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsConnected}"
-                                    Value="True" />
+                                <Condition Binding="{Binding IsEstablished}" Value="True" />
                                 <Condition Binding="{Binding HasError}" Value="False" />
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="LightGreen" />

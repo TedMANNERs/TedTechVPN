@@ -6,6 +6,7 @@ namespace Model
     public partial class VpnConnection : INotifyPropertyChanged
     {
         private bool _hasError;
+        private bool _isEstablished;
 
         public bool HasError
         {
@@ -13,6 +14,16 @@ namespace Model
             set
             {
                 _hasError = value; 
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsEstablished
+        {
+            get { return _isEstablished; }
+            set
+            {
+                _isEstablished = value; 
                 OnPropertyChanged();
             }
         }

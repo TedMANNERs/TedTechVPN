@@ -55,12 +55,14 @@ namespace UserInterface
         {
             IsConnected = _vpnProvider.Connect(SelectedConnection);
             SelectedConnection.HasError = !IsConnected;
+            SelectedConnection.IsEstablished = IsConnected;
         }
 
         private void Disconnect()
         {
             _vpnProvider.Disconnect();
             IsConnected = false;
+            SelectedConnection.IsEstablished = IsConnected;
         }
 
         private void CreateConnection()
