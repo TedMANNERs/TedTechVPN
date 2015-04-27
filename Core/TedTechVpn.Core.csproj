@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILoginMonitor.cs" />
     <Compile Include="IPasswordProvider.cs" />
     <Compile Include="IVpnConnectionProvider.cs" />
     <Compile Include="LoginMonitor.cs" />

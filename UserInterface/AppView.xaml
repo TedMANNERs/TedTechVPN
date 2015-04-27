@@ -25,6 +25,22 @@
                 <DataGridTextColumn Header="Hostname" Binding="{Binding Hostname}" Width="*" />
                 <DataGridTextColumn Header="Port" Binding="{Binding Port}" Width="50" />
             </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Style.Triggers>
+                        <DataTrigger
+                            Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsConnected}"
+                            Value="False">
+                            <Setter Property="Background" Value="LightCoral" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsConnected}"
+                            Value="True">
+                            <Setter Property="Background" Value="LightGreen" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
         <Button Grid.Row="2" Margin="0, 10" Height="40">
             <Button.Style>
@@ -32,11 +48,11 @@
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsConnected}" Value="True">
                             <Setter Property="Content" Value="Disconnect" />
-                            <Setter Property="Command" Value="{Binding DisconnectCommand}"/>
+                            <Setter Property="Command" Value="{Binding DisconnectCommand}" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsConnected}" Value="False">
                             <Setter Property="Content" Value="Connect" />
-                            <Setter Property="Command" Value="{Binding ConnectCommand}"/>
+                            <Setter Property="Command" Value="{Binding ConnectCommand}" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>

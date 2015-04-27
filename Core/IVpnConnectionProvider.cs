@@ -4,7 +4,7 @@ namespace Core
 {
     public interface IVpnConnectionProvider
     {
-        void Connect(VpnConnection selectedConnection);
+        bool Connect(VpnConnection selectedConnection);
         void Disconnect();
     }
 }

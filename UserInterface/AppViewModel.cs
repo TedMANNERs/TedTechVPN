@@ -1,4 +1,6 @@
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using Core;
 using Model;
@@ -7,8 +9,8 @@ namespace UserInterface
 {
     public class AppViewModel : ViewModelBase, IViewModel
     {
-        private readonly IVpnConnectionProvider _vpnProvider;
         private readonly ILoginMonitor _loginMonitor;
+        private readonly IVpnConnectionProvider _vpnProvider;
         private bool _isConnected;
 
         public AppViewModel(IVpnConnectionProvider vpnProvider, ILoginMonitor loginMonitor)
@@ -42,10 +44,18 @@ namespace UserInterface
             }
         }
 
+
+        public void Load()
+        {
+            using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
+            {
+                VpnConnections = new ObservableCollection<VpnConnection>(dbContext.VpnConnection.Where(x => x.IsActive));
+            }
+        }
+
         private void Connect()
         {
-            _vpnProvider.Connect(SelectedConnection);
-            IsConnected = true;
+            IsConnected = _vpnProvider.Connect(SelectedConnection);
         }
 
         private void Disconnect()

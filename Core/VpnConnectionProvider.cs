@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using DotRas;
 using Model;
 
@@ -21,19 +23,33 @@ namespace Core
             };
         }
 
-        public void Connect(VpnConnection selectedConnection)
+        public bool Connect(VpnConnection selectedConnection)
         {
-            string path = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.User);
-            _phoneBook.Open(path);
-
-            _entry = _phoneBook.Entries
-                .FirstOrDefault(x => x.PhoneNumber == selectedConnection.Hostname);
-
-            if (_entry != null)
+            try
             {
-                _dialer.EntryName = _entry.Name;
-                _dialer.DialAsync();
+                string path = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.User);
+                _phoneBook.Open(path);
+
+                _entry = _phoneBook.Entries
+                    .FirstOrDefault(x => x.PhoneNumber == selectedConnection.Hostname);
+
+                if (_entry != null)
+                {
+                    _dialer.EntryName = _entry.Name;
+                    _dialer.DialAsync();
+                    return true;
+                }
             }
+            catch (InvalidOperationException e)
+            {
+                Disconnect();
+            }
+            catch (RasException e)
+            {
+                Disconnect();
+            }
+
+            return false;
         }
 
         public void Disconnect()
