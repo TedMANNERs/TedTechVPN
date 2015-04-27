@@ -7,14 +7,15 @@ namespace UserInterface
     {
         public override void Load()
         {
-            Bind<IViewModelSwitcher>().To<ViewModelSwitcher>().InSingletonScope();
+            Bind<ILoginMonitor>().To<LoginMonitor>().InSingletonScope();
+            Bind<IVpnConnectionProvider>().To<VpnConnectionProvider>().InSingletonScope();
+            Bind<IPasswordProvider>().To<PasswordProvider>();
             Bind<IViewModel>().To<LoginViewModel>().InSingletonScope();
             Bind<IViewModel>().To<AppViewModel>().InSingletonScope();
+            Bind<IViewModelSwitcher>().To<ViewModelSwitcher>().InSingletonScope();
             Bind<ViewModelBase>().To<MainViewModel>().InSingletonScope();
             Bind<ViewModelBase>().To<LoginViewModel>().InSingletonScope();
             Bind<ViewModelBase>().To<AppViewModel>().InSingletonScope();
-            Bind<IPasswordProvider>().To<PasswordProvider>();
-            Bind<IVpnConnectionProvider>().To<VpnConnectionProvider>();
         }
     }
 }

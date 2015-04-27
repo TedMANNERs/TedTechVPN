@@ -10,7 +10,7 @@
             <Border BorderBrush="Black" BorderThickness="1" Padding="10">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Username" />
-                    <TextBox Text="{Binding Username}" MinWidth="130" MinHeight="25" />
+                    <TextBox Text="{Binding LoginMonitor.Username}" MinWidth="130" MinHeight="25" />
                     <Label Content="Password" />
                     <PasswordBox Name="VpnPasswordBox" MinWidth="130" MinHeight="25" PasswordChanged="VpnPasswordBox_PasswordChanged" />
                 </StackPanel>

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Core;
 using UserInterface.Annotations;
 
 namespace UserInterface
@@ -8,17 +9,7 @@ namespace UserInterface
     {
         public delegate void SwitchViewEventHandler(object sender, SwitchViewEventArgs e);
 
-        private string _username;
-
-        public string Username
-        {
-            get { return _username; }
-            set
-            {
-                _username = value;
-                OnPropertyChanged();
-            }
-        }
+        public ILoginMonitor LoginMonitor { get; set; }
 
         public string Name { get; set; }
 

@@ -7,19 +7,19 @@ namespace Core
 {
     public class VpnConnectionProvider : IVpnConnectionProvider
     {
+        private readonly ILoginMonitor _loginMonitor;
         private readonly RasDialer _dialer;
         private readonly RasPhoneBook _phoneBook;
         private RasEntry _entry;
 
-        public VpnConnectionProvider()
+        public VpnConnectionProvider(ILoginMonitor loginMonitor)
         {
+            _loginMonitor = loginMonitor;
             _phoneBook = new RasPhoneBook();
-
-
             _dialer = new RasDialer
             {
                 PhoneBookPath = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.User),
-                Credentials = new NetworkCredential("VpnUser", "vpn")
+                Credentials = new NetworkCredential(_loginMonitor.Username, _loginMonitor.Password)
             };
         }
 
@@ -44,11 +44,5 @@ namespace Core
                 .FirstOrDefault(x => x.EntryName == _entry.Name);
             if (connection != null) connection.HangUp();
         }
-    }
-
-    public interface IVpnConnectionProvider
-    {
-        void Connect(VpnConnection selectedConnection);
-        void Disconnect();
     }
 }

@@ -44,7 +44,7 @@
         </Button>
         <DockPanel Grid.Row="3" HorizontalAlignment="Stretch">
             <Label Content="User: " />
-            <TextBox Text="{Binding Username}" IsEnabled="False" />
+            <TextBox Text="{Binding LoginMonitor.Username}" IsEnabled="False" />
         </DockPanel>
     </Grid>
 </UserControl>

@@ -1,10 +1,7 @@
 using System.Data.Entity.Core;
-using System.Linq;
 using System.Security;
-using System.Text;
 using System.Windows.Input;
 using Core;
-using Model;
 
 namespace UserInterface
 {
@@ -12,16 +9,15 @@ namespace UserInterface
     {
         private string _errorMessage;
 
-        public LoginViewModel()
+        public LoginViewModel(ILoginMonitor loginMonitor)
         {
+            LoginMonitor = loginMonitor;
             Name = "Login";
-            Password = new SecureString();
             LoginCommand = new DelegateCommand(obj => Login(),
-                () => !string.IsNullOrEmpty(Username) && Password.Length > 0);
+                () => !string.IsNullOrEmpty(LoginMonitor.Username) && LoginMonitor.Password.Length > 0);
         }
 
         public ICommand LoginCommand { get; set; }
-        public SecureString Password { get; set; }
 
         public string ErrorMessage
         {
@@ -35,23 +31,17 @@ namespace UserInterface
 
         private void Login()
         {
-            IPasswordProvider provider = new PasswordProvider();
-            UnicodeEncoding encoding = new UnicodeEncoding();
-
             try
             {
-                using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
+                bool loginSuccessful = LoginMonitor.Login();
+                if (loginSuccessful)
                 {
-                    User user = dbContext.User.FirstOrDefault(u => u.Name == Username);
-
-                    if (user != null &&
-                        user.Password == encoding.GetString(provider.Hash(Password, encoding.GetBytes(user.Salt))))
-                    {
-                        ErrorMessage = string.Empty;
-                        RequestSwitch(new SwitchViewEventArgs("App"));
-                    }
-                    else
-                        ErrorMessage = "User does not exist";
+                    ErrorMessage = string.Empty;
+                    RequestSwitch(new SwitchViewEventArgs("App"));
+                }
+                else
+                {
+                    ErrorMessage = "Login incorrect";
                 }
             }
             catch (EntityException e)

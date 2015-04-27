@@ -16,7 +16,7 @@ namespace UserInterface
         private void VpnPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             LoginViewModel loginViewModel = (LoginViewModel) DataContext;
-            loginViewModel.Password = VpnPasswordBox.SecurePassword;
+            loginViewModel.LoginMonitor.Password = VpnPasswordBox.SecurePassword;
         }
     }
 }
