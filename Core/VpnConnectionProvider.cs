@@ -7,19 +7,17 @@ namespace Core
 {
     public class VpnConnectionProvider : IVpnConnectionProvider
     {
-        private readonly ILoginMonitor _loginMonitor;
         private readonly RasDialer _dialer;
         private readonly RasPhoneBook _phoneBook;
         private RasEntry _entry;
 
         public VpnConnectionProvider(ILoginMonitor loginMonitor)
         {
-            _loginMonitor = loginMonitor;
             _phoneBook = new RasPhoneBook();
             _dialer = new RasDialer
             {
                 PhoneBookPath = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.User),
-                Credentials = new NetworkCredential(_loginMonitor.Username, _loginMonitor.Password)
+                Credentials = new NetworkCredential(loginMonitor.Username, loginMonitor.Password)
             };
         }
 
