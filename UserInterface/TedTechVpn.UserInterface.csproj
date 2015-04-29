@@ -68,6 +68,7 @@
     <Compile Include="ViewModels\ViewModelSwitcher.cs" />
     <Compile Include="SwitchViewEventArgs.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="VpnConnectionInfo.cs" />
     <Compile Include="VpnKernel.cs" />
     <Compile Include="VpnModule.cs" />
     <Page Include="AppView.xaml">

@@ -8,16 +8,15 @@ namespace UserInterface.ViewModels
 {
     public class AppViewModel : ViewModelBase, IViewModel
     {
-        private readonly ILoginMonitor _loginMonitor;
         private readonly IVpnConnectionProvider _vpnProvider;
         private bool _isConnected;
 
         public AppViewModel(IVpnConnectionProvider vpnProvider, ILoginMonitor loginMonitor)
         {
             _vpnProvider = vpnProvider;
-            _loginMonitor = loginMonitor;
+            LoginMonitor = loginMonitor;
             Name = "App";
-            VpnConnections = new ObservableCollection<VpnConnection>();
+            VpnConnections = new ObservableCollection<VpnConnectionInfo>();
             LogoutCommand = new DelegateCommand(obj => Logout(), () => true);
             NewCommand = new DelegateCommand(obj => CreateConnection(), () => true);
             RemoveCommand = new DelegateCommand(obj => RemoveConnection(), () => SelectedConnection != null);
@@ -25,8 +24,8 @@ namespace UserInterface.ViewModels
             DisconnectCommand = new DelegateCommand(obj => Disconnect(), () => true);
         }
 
-        public ObservableCollection<VpnConnection> VpnConnections { get; set; }
-        public VpnConnection SelectedConnection { get; set; }
+        public ObservableCollection<VpnConnectionInfo> VpnConnections { get; set; }
+        public VpnConnectionInfo SelectedConnection { get; set; }
         public ICommand LogoutCommand { get; set; }
         public ICommand NewCommand { get; set; }
         public ICommand RemoveCommand { get; set; }
@@ -47,13 +46,17 @@ namespace UserInterface.ViewModels
         {
             using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
             {
-                VpnConnections = new ObservableCollection<VpnConnection>(dbContext.VpnConnection.Where(x => x.IsActive));
+                VpnConnections = new ObservableCollection<VpnConnectionInfo>();
+                foreach (VpnConnection connection in dbContext.VpnConnection.Where(x => x.IsActive))
+                {
+                    VpnConnections.Add(new VpnConnectionInfo { VpnConnection = connection });
+                }
             }
         }
 
         private void Connect()
         {
-            IsConnected = _vpnProvider.Connect(SelectedConnection);
+            IsConnected = _vpnProvider.Connect(SelectedConnection.VpnConnection);
             SelectedConnection.HasError = !IsConnected;
             SelectedConnection.IsEstablished = IsConnected;
         }
@@ -67,7 +70,7 @@ namespace UserInterface.ViewModels
 
         private void CreateConnection()
         {
-            VpnConnections.Add(new VpnConnection());
+            VpnConnections.Add(new VpnConnectionInfo());
         }
 
         private void RemoveConnection()
@@ -77,7 +80,7 @@ namespace UserInterface.ViewModels
 
         private void Logout()
         {
-            _loginMonitor.Logout();
+            LoginMonitor.Logout();
             Disconnect();
             RequestSwitch(new SwitchViewEventArgs("Login"));
         }

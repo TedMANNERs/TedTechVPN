@@ -22,8 +22,8 @@
                   IsManipulationEnabled="True"
                   AutoGenerateColumns="False" RowHeight="30" GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Hostname" Binding="{Binding Hostname}" Width="*" />
-                <DataGridTextColumn Header="Port" Binding="{Binding Port}" Width="50" />
+                <DataGridTextColumn Header="Hostname" Binding="{Binding VpnConnection.Hostname}" Width="*" />
+                <DataGridTextColumn Header="Port" Binding="{Binding VpnConnection.Port}" Width="50" />
             </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
