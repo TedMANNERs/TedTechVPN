@@ -1,4 +1,4 @@
-﻿namespace UserInterface
+﻿namespace UserInterface.ViewModels
 {
     public interface IViewModelSwitcher
     {

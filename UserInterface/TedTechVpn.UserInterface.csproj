@@ -63,11 +63,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IViewModel.cs" />
-    <Compile Include="IViewModelSwitcher.cs" />
-    <Compile Include="ViewModelSwitcher.cs" />
+    <Compile Include="ViewModels\IViewModel.cs" />
+    <Compile Include="ViewModels\IViewModelSwitcher.cs" />
+    <Compile Include="ViewModels\ViewModelSwitcher.cs" />
     <Compile Include="SwitchViewEventArgs.cs" />
-    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="VpnKernel.cs" />
     <Compile Include="VpnModule.cs" />
     <Page Include="AppView.xaml">
@@ -89,19 +89,19 @@
     <Compile Include="AppView.xaml.cs">
       <DependentUpon>AppView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppViewModel.cs" />
+    <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

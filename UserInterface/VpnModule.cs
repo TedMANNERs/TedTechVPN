@@ -1,5 +1,6 @@
 ﻿using Core;
 using Ninject.Modules;
+using UserInterface.ViewModels;
 
 namespace UserInterface
 {

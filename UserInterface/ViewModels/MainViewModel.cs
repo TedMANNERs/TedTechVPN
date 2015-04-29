@@ -1,4 +1,4 @@
-﻿namespace UserInterface
+﻿namespace UserInterface.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {

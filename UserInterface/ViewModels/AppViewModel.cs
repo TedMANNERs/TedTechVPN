@@ -4,7 +4,7 @@ using System.Windows.Input;
 using Core;
 using Model;
 
-namespace UserInterface
+namespace UserInterface.ViewModels
 {
     public class AppViewModel : ViewModelBase, IViewModel
     {

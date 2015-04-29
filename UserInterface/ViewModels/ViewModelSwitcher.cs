@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using UserInterface.Annotations;
+using UserInterface.Properties;
 
-namespace UserInterface
+namespace UserInterface.ViewModels
 {
     public class ViewModelSwitcher : IViewModelSwitcher, INotifyPropertyChanged
     {

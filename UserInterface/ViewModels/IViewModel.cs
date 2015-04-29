@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace UserInterface
+namespace UserInterface.ViewModels
 {
     public interface IViewModel
     {

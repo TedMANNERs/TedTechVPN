@@ -1,9 +1,8 @@
 using System.Data.Entity.Core;
-using System.Security;
 using System.Windows.Input;
 using Core;
 
-namespace UserInterface
+namespace UserInterface.ViewModels
 {
     public class LoginViewModel : ViewModelBase, IViewModel
     {

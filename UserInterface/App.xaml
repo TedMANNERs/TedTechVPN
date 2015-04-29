@@ -2,12 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:namespace="clr-namespace:UserInterface"
+             xmlns:viewModels="clr-namespace:UserInterface.ViewModels"
              StartupUri="MainView.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type namespace:AppViewModel}">
+        <DataTemplate DataType="{x:Type viewModels:AppViewModel}">
             <namespace:AppView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type namespace:LoginViewModel}">
+        <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
             <namespace:LoginView/>
         </DataTemplate>
     </Application.Resources>
