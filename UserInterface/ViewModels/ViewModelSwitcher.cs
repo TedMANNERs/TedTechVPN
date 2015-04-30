@@ -21,22 +21,24 @@ namespace TedTechVpn.UserInterface.ViewModels
             CurrentView = viewModels.First(x => x.Name == "Login");
         }
 
-        public void Switch(object sender, SwitchViewEventArgs e)
-        {
-            CurrentView = _viewModels.FirstOrDefault(x => x.Name == e.ViewModel);
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public IViewModel CurrentView
         {
             get { return _currentView; }
             set
             {
-                _currentView = value; 
+                _currentView = value;
                 OnPropertyChanged();
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public void Switch(object sender, SwitchViewEventArgs e)
+        {
+            CurrentView = _viewModels.FirstOrDefault(x => x.Name == e.ViewModel);
+            if (CurrentView != null && CurrentView.GetType() == typeof (AppViewModel))
+                ((AppViewModel) CurrentView).Load();
+        }
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
