@@ -49,7 +49,7 @@ namespace TedTechVpn.UserInterface.ViewModels
                 VpnConnections = new ObservableCollection<VpnConnectionInfo>();
                 foreach (VpnConnection connection in dbContext.VpnConnection.Where(x => x.IsActive))
                 {
-                    VpnConnections.Add(new VpnConnectionInfo { VpnConnection = connection });
+                    VpnConnections.Add(new VpnConnectionInfo(connection));
                 }
             }
         }

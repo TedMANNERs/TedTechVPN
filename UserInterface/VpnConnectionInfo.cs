@@ -14,6 +14,11 @@ namespace TedTechVpn.UserInterface
             VpnConnection = new VpnConnection();
         }
 
+        public VpnConnectionInfo(VpnConnection vpnConnection)
+        {
+            VpnConnection = vpnConnection;
+        }
+
         public VpnConnection VpnConnection { get; set; }
 
         public bool HasError
