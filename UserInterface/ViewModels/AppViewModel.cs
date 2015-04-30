@@ -1,10 +1,10 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using Core;
-using Model;
+using TedTechVpn.Core;
+using TedTechVpn.Model;
 
-namespace UserInterface.ViewModels
+namespace TedTechVpn.UserInterface.ViewModels
 {
     public class AppViewModel : ViewModelBase, IViewModel
     {

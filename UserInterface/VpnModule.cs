@@ -1,8 +1,8 @@
-﻿using Core;
-using Ninject.Modules;
-using UserInterface.ViewModels;
+﻿using Ninject.Modules;
+using TedTechVpn.Core;
+using TedTechVpn.UserInterface.ViewModels;
 
-namespace UserInterface
+namespace TedTechVpn.UserInterface
 {
     public class VpnModule : NinjectModule
     {

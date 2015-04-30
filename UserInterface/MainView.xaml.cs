@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace UserInterface
+namespace TedTechVpn.UserInterface
 {
     /// <summary>
     ///     Interaktionslogik für MainView.xaml

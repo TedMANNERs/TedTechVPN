@@ -1,8 +1,8 @@
-﻿<Window x:Class="UserInterface.MainView"
+﻿<Window x:Class="TedTechVpn.UserInterface.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:namespace="clr-namespace:UserInterface"
-        xmlns:viewModels="clr-namespace:UserInterface.ViewModels"
+        xmlns:viewModels="clr-namespace:TedTechVpn.UserInterface.ViewModels"
+        xmlns:namespace="clr-namespace:TedTechVpn.UserInterface"
         Title="TedTechVPN" Height="480" Width="275" MaxHeight="600" MaxWidth="400"
         WindowStyle="None" Style="{DynamicResource WindowStyle}">
     <Window.DataContext>

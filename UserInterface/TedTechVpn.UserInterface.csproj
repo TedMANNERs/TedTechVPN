@@ -7,7 +7,7 @@
     <ProjectGuid>{F98606F7-2669-4E2C-946B-CACAEB447154}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UserInterface</RootNamespace>
+    <RootNamespace>TedTechVpn.UserInterface</RootNamespace>
     <AssemblyName>TedTechVpn.UserInterface</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

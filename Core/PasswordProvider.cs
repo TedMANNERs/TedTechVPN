@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 
-namespace Core
+namespace TedTechVpn.Core
 {
     public class PasswordProvider : IPasswordProvider
     {

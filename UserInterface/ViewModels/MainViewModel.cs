@@ -1,4 +1,4 @@
-﻿namespace UserInterface.ViewModels
+﻿namespace TedTechVpn.UserInterface.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {

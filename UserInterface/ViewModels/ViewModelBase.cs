@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Core;
-using UserInterface.Properties;
+using TedTechVpn.Core;
+using TedTechVpn.UserInterface.Properties;
 
-namespace UserInterface.ViewModels
+namespace TedTechVpn.UserInterface.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

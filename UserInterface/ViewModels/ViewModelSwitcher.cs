@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using UserInterface.Properties;
+using TedTechVpn.UserInterface.Properties;
 
-namespace UserInterface.ViewModels
+namespace TedTechVpn.UserInterface.ViewModels
 {
     public class ViewModelSwitcher : IViewModelSwitcher, INotifyPropertyChanged
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{7FA65C0D-8662-474C-8E04-1C391B7B48E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core</RootNamespace>
+    <RootNamespace>TedTechVpn.Core</RootNamespace>
     <AssemblyName>TedTechVpn.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -1,13 +1,18 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Model;
+using TedTechVpn.Model;
 
-namespace UserInterface
+namespace TedTechVpn.UserInterface
 {
     public class VpnConnectionInfo : INotifyPropertyChanged
     {
         private bool _hasError;
         private bool _isEstablished;
+
+        public VpnConnectionInfo()
+        {
+            VpnConnection = new VpnConnection();
+        }
 
         public VpnConnection VpnConnection { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿using System.Security;
 
-namespace Core
+namespace TedTechVpn.Core
 {
     public interface ILoginMonitor
     {

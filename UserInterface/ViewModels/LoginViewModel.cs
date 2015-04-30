@@ -1,8 +1,8 @@
 using System.Data.Entity.Core;
 using System.Windows.Input;
-using Core;
+using TedTechVpn.Core;
 
-namespace UserInterface.ViewModels
+namespace TedTechVpn.UserInterface.ViewModels
 {
     public class LoginViewModel : ViewModelBase, IViewModel
     {
