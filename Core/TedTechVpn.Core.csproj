@@ -58,6 +58,7 @@
     <Compile Include="IVpnConnectionProvider.cs" />
     <Compile Include="LoginMonitor.cs" />
     <Compile Include="PasswordProvider.cs" />
+    <Compile Include="PermissionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VpnConnectionProvider.cs" />
   </ItemGroup>

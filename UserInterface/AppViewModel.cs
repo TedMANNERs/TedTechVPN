@@ -12,7 +12,7 @@ namespace UserInterface
         private readonly IVpnConnectionProvider _vpnProvider;
         private bool _isConnected;
 
-        public AppViewModel(IVpnConnectionProvider vpnProvider, ILoginMonitor loginMonitor)
+        public AppViewModel(IVpnConnectionProvider vpnProvider, ILoginMonitor loginMonitor, IPermissionManager permissionManager)
         {
             _vpnProvider = vpnProvider;
             _loginMonitor = loginMonitor;
