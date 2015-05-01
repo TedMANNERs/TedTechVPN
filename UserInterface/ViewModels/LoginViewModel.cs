@@ -1,6 +1,4 @@
-using System;
 using System.Data.Entity.Core;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TedTechVpn.Core;
 
