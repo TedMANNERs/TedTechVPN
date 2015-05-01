@@ -71,7 +71,8 @@ namespace TedTechVpn.UserInterface.ViewModels
         {
             _vpnProvider.Disconnect();
             IsConnected = false;
-            SelectedConnection.IsEstablished = IsConnected;
+            if (SelectedConnection != null)
+                SelectedConnection.IsEstablished = IsConnected;
         }
 
         private void CreateConnection()
