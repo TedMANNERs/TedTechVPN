@@ -38,7 +38,7 @@ namespace TedTechVpn.Core
                 if (_entry != null)
                 {
                     _dialer.EntryName = _entry.Name;
-                    _dialer.Dial();
+                    _dialer.DialAsync();
                     return true;
                 }
             }

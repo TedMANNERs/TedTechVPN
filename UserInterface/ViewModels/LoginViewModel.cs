@@ -1,4 +1,6 @@
+using System;
 using System.Data.Entity.Core;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using TedTechVpn.Core;
 
@@ -32,7 +34,8 @@ namespace TedTechVpn.UserInterface.ViewModels
         {
             try
             {
-                bool loginSuccessful = LoginMonitor.Login();
+                Task<bool> loginTask = Task<bool>.Factory.StartNew(() => LoginMonitor.Login());
+                bool loginSuccessful = loginTask.Result;
                 if (loginSuccessful)
                 {
                     ErrorMessage = string.Empty;
