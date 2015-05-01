@@ -25,6 +25,15 @@
                 <DataGridTextColumn Header="Hostname" Binding="{Binding Connection.Hostname, UpdateSourceTrigger=PropertyChanged}" Width="*" />
                 <DataGridTextColumn Header="Port" Binding="{Binding Connection.Port, UpdateSourceTrigger=PropertyChanged}" Width="50" />
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Background" Value="#6F0090FF"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
                     <Style.Triggers>
