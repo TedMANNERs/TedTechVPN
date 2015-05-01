@@ -1,11 +1,12 @@
 ﻿using System.Security;
+using TedTechVpn.Model;
 
 namespace TedTechVpn.Core
 {
     public interface ILoginMonitor
     {
-        string Username { get; set; }
-        SecureString Password { get; set; }
+        User User { get; set; }
+        SecureString SecurePassword { get; set; }
         void Logout();
         bool Login();
     }

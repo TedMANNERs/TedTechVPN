@@ -1,5 +1,4 @@
-﻿using Core;
-using Ninject.Modules;
+﻿using Ninject.Modules;
 using TedTechVpn.Core;
 using TedTechVpn.UserInterface.ViewModels;
 
@@ -12,7 +11,6 @@ namespace TedTechVpn.UserInterface
             Bind<ILoginMonitor>().To<LoginMonitor>().InSingletonScope();
             Bind<IVpnConnectionProvider>().To<VpnConnectionProvider>().InSingletonScope();
             Bind<IPasswordProvider>().To<PasswordProvider>();
-            Bind<IPermissionManager>().To<PermissionManager>();
             Bind<IViewModel>().To<LoginViewModel>().InSingletonScope();
             Bind<IViewModel>().To<AppViewModel>().InSingletonScope();
             Bind<IViewModelSwitcher>().To<ViewModelSwitcher>().InSingletonScope();

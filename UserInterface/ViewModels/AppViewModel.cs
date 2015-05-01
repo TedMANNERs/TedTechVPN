@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using Core;
 using TedTechVpn.Core;
 using TedTechVpn.Model;
 
@@ -12,15 +11,16 @@ namespace TedTechVpn.UserInterface.ViewModels
         private readonly IVpnConnectionProvider _vpnProvider;
         private bool _isConnected;
 
-        public AppViewModel(IVpnConnectionProvider vpnProvider, ILoginMonitor loginMonitor, IPermissionManager permissionManager)
+        public AppViewModel(IVpnConnectionProvider vpnProvider, ILoginMonitor loginMonitor)
         {
             _vpnProvider = vpnProvider;
             LoginMonitor = loginMonitor;
             Name = "App";
             VpnConnections = new ObservableCollection<VpnConnectionInfo>();
             LogoutCommand = new DelegateCommand(obj => Logout(), () => true);
-            NewCommand = new DelegateCommand(obj => CreateConnection(), () => true);
-            RemoveCommand = new DelegateCommand(obj => RemoveConnection(), () => SelectedConnection != null);
+            NewCommand = new DelegateCommand(obj => CreateConnection(), () => LoginMonitor.User.IsPrivileged);
+            RemoveCommand = new DelegateCommand(obj => RemoveConnection(),
+                () => SelectedConnection != null && LoginMonitor.User.IsPrivileged);
             ConnectCommand = new DelegateCommand(obj => Connect(), () => SelectedConnection != null);
             DisconnectCommand = new DelegateCommand(obj => Disconnect(), () => true);
         }
@@ -32,6 +32,11 @@ namespace TedTechVpn.UserInterface.ViewModels
         public ICommand RemoveCommand { get; set; }
         public ICommand ConnectCommand { get; set; }
         public ICommand DisconnectCommand { get; set; }
+
+        public bool IsReadOnly
+        {
+            get { return !LoginMonitor.User.IsPrivileged; }
+        }
 
         public bool IsConnected
         {
@@ -82,6 +87,7 @@ namespace TedTechVpn.UserInterface.ViewModels
         private void Logout()
         {
             LoginMonitor.Logout();
+            LoginMonitor.User = new User();
             Disconnect();
             RequestSwitch(new SwitchViewEventArgs("Login"));
         }

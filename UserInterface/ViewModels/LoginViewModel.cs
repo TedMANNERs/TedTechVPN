@@ -13,7 +13,7 @@ namespace TedTechVpn.UserInterface.ViewModels
             LoginMonitor = loginMonitor;
             Name = "Login";
             LoginCommand = new DelegateCommand(obj => Login(),
-                () => !string.IsNullOrEmpty(LoginMonitor.Username) && LoginMonitor.Password.Length > 0);
+                () => !string.IsNullOrEmpty(LoginMonitor.User.Name) && LoginMonitor.SecurePassword.Length > 0);
         }
 
         public ICommand LoginCommand { get; set; }

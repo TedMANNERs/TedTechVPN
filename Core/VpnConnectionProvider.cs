@@ -20,13 +20,13 @@ namespace TedTechVpn.Core
             _dialer = new RasDialer
             {
                 PhoneBookPath = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.User),
-                Credentials = new NetworkCredential(_loginMonitor.Username, _loginMonitor.Password)
+                Credentials = new NetworkCredential(_loginMonitor.User.Name, _loginMonitor.SecurePassword)
             };
         }
 
         public bool Connect(VpnConnection selectedConnection)
         {
-            _dialer.Credentials = new NetworkCredential(_loginMonitor.Username, _loginMonitor.Password);
+            _dialer.Credentials = new NetworkCredential(_loginMonitor.User.Name, _loginMonitor.SecurePassword);
             try
             {
                 string path = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.User);

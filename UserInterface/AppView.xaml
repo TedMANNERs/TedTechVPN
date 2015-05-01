@@ -19,7 +19,7 @@
             <Button Content="-" DockPanel.Dock="Right" Width="30" Margin="10,0" Command="{Binding RemoveCommand}" />
         </DockPanel>
         <DataGrid Grid.Row="1" ItemsSource="{Binding VpnConnections}" SelectedItem="{Binding SelectedConnection}"
-                  IsManipulationEnabled="True"
+                  IsManipulationEnabled="True" IsReadOnly="{Binding IsReadOnly}"
                   AutoGenerateColumns="False" RowHeight="30" GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Hostname" Binding="{Binding VpnConnection.Hostname}" Width="*" />
@@ -60,7 +60,7 @@
         </Button>
         <DockPanel Grid.Row="3" HorizontalAlignment="Stretch">
             <Label Content="User: " />
-            <TextBox Text="{Binding LoginMonitor.Username}" IsEnabled="False" />
+            <TextBox Text="{Binding LoginMonitor.User.Name}" IsEnabled="False" />
         </DockPanel>
     </Grid>
 </UserControl>

@@ -12,16 +12,17 @@ namespace TedTechVpn.Core
         public LoginMonitor(IPasswordProvider passwordProvider)
         {
             _passwordProvider = passwordProvider;
-            Password = new SecureString();
+            SecurePassword = new SecureString();
+            User = new User();
         }
 
-        public string Username { get; set; }
-        public SecureString Password { get; set; }
+        public User User { get; set; }
+        public SecureString SecurePassword { get; set; }
 
         public void Logout()
         {
-            Password.Clear();
-            Username = string.Empty;
+            SecurePassword.Clear();
+            User.Name = string.Empty;
         }
 
         public bool Login()
@@ -29,11 +30,15 @@ namespace TedTechVpn.Core
             UnicodeEncoding encoding = new UnicodeEncoding();
             using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
             {
-                User user = dbContext.User.FirstOrDefault(u => u.Name == Username);
+                User user = dbContext.User.FirstOrDefault(u => u.Name == User.Name);
+                if (user == null || user.Password !=
+                    encoding.GetString(_passwordProvider.Hash(SecurePassword, encoding.GetBytes(user.Salt))))
+                {
+                    return false;
+                }
 
-                return user != null &&
-                       user.Password ==
-                       encoding.GetString(_passwordProvider.Hash(Password, encoding.GetBytes(user.Salt)));
+                User.IsPrivileged = user.IsPrivileged;
+                return true;
             }
         }
     }
