@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TedTechVpn.UserInterface.AppView">
+    <Position X="17.5" Y="11.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.DelegateCommand" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAEAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.LoginView">
+    <Position X="15.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoginView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.MainView">
+    <Position X="17.5" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAABAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>MainView.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.SwitchViewEventArgs">
+    <Position X="21.75" Y="11.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SwitchViewEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.VpnConnectionInfo" BaseTypeListCollapsed="true">
+    <Position X="13" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAEAIAAAAAAAgAAAAQAIAAAAAAQAAAA=</HashCode>
+      <FileName>VpnConnectionInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.VpnKernel" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAAACBAAAAAAAAAAAAAAAAAQAAAAgAAAAA=</HashCode>
+      <FileName>VpnKernel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.VpnModule">
+    <Position X="22.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VpnModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.ViewModels.AppViewModel">
+    <Position X="13.25" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIUAgAACAACABAFQAMAAAIIAAAAAAAAAAAAAAAgBBIA=</HashCode>
+      <FileName>ViewModels\AppViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.ViewModels.LoginViewModel">
+    <Position X="15.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAQAACAAAA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.ViewModels.MainViewModel">
+    <Position X="17.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.ViewModels.ViewModelBase">
+    <Position X="15" Y="3.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="TedTechVpn.UserInterface.ViewModels.ViewModelBase.SwitchViewEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ViewModels\ViewModelBase.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAIAAAAAQAgIAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.UserInterface.ViewModels.ViewModelSwitcher" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAIAAIAEACAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ViewModelSwitcher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.Model.TedTechVPNEntities">
+    <Position X="6.75" Y="3.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TedTechVpn.Model.User">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TedTechVpn.Model.VpnConnection">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="TedTechVpn.Core.LoginMonitor" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.Core.PasswordProvider" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TedTechVpn.Core.VpnConnectionProvider" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="9.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="TedTechVpn.UserInterface.ViewModels.IViewModel">
+    <Position X="19.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAIAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\IViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TedTechVpn.UserInterface.ViewModels.IViewModelSwitcher">
+    <Position X="19.75" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\IViewModelSwitcher.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TedTechVpn.Core.ILoginMonitor">
+    <Position X="6.75" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TedTechVpn.Core.IPasswordProvider">
+    <Position X="8.5" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="TedTechVpn.Core.IVpnConnectionProvider">
+    <Position X="10.25" Y="7" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
