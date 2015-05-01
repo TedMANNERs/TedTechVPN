@@ -1,6 +1,6 @@
-﻿using Model;
+﻿using TedTechVpn.Model;
 
-namespace Core
+namespace TedTechVpn.Core
 {
     public interface IVpnConnectionProvider
     {

@@ -1,4 +1,4 @@
-<UserControl x:Class="UserInterface.AppView"
+<UserControl x:Class="TedTechVpn.UserInterface.AppView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -22,8 +22,8 @@
                   IsManipulationEnabled="True"
                   AutoGenerateColumns="False" RowHeight="30" GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Hostname" Binding="{Binding Hostname}" Width="*" />
-                <DataGridTextColumn Header="Port" Binding="{Binding Port}" Width="50" />
+                <DataGridTextColumn Header="Hostname" Binding="{Binding VpnConnection.Hostname}" Width="*" />
+                <DataGridTextColumn Header="Port" Binding="{Binding VpnConnection.Port}" Width="50" />
             </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">

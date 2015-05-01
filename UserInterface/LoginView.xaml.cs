@@ -1,7 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using TedTechVpn.UserInterface.ViewModels;
 
-namespace UserInterface
+namespace TedTechVpn.UserInterface
 {
     /// <summary>
     ///     Interaktionslogik für LoginView.xaml

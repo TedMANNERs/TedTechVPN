@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TedTechVpn.UserInterface", "UserInterface\TedTechVpn.UserInterface.csproj", "{F98606F7-2669-4E2C-946B-CACAEB447154}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TedTechVpn.Model", "Model\TedTechVpn.Model.csproj", "{B3D5A9D9-6CB2-4906-A79D-27F9679689A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TedTechVpn.Core", "Core\TedTechVpn.Core.csproj", "{7FA65C0D-8662-474C-8E04-1C391B7B48E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TedTechVpn.CoreTest", "CoreTest\TedTechVpn.CoreTest.csproj", "{C31FF2DA-67EC-49B6-9D05-E77CBD44DBC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{7FA65C0D-8662-474C-8E04-1C391B7B48E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FA65C0D-8662-474C-8E04-1C391B7B48E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FA65C0D-8662-474C-8E04-1C391B7B48E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C31FF2DA-67EC-49B6-9D05-E77CBD44DBC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C31FF2DA-67EC-49B6-9D05-E77CBD44DBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C31FF2DA-67EC-49B6-9D05-E77CBD44DBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C31FF2DA-67EC-49B6-9D05-E77CBD44DBC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

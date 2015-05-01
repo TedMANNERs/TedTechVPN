@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UserInterface
+namespace TedTechVpn.UserInterface
 {
     public class SwitchViewEventArgs : EventArgs
     {

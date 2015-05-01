@@ -1,7 +1,7 @@
 ﻿using System;
 using Ninject;
 
-namespace UserInterface
+namespace TedTechVpn.UserInterface
 {
     public class VpnKernel : IDisposable
     {

@@ -1,19 +1,32 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TedTechVpn.Model;
 
-namespace Model
+namespace TedTechVpn.UserInterface
 {
-    public partial class VpnConnection : INotifyPropertyChanged
+    public class VpnConnectionInfo : INotifyPropertyChanged
     {
         private bool _hasError;
         private bool _isEstablished;
+
+        public VpnConnectionInfo()
+        {
+            VpnConnection = new VpnConnection();
+        }
+
+        public VpnConnectionInfo(VpnConnection vpnConnection)
+        {
+            VpnConnection = vpnConnection;
+        }
+
+        public VpnConnection VpnConnection { get; set; }
 
         public bool HasError
         {
             get { return _hasError; }
             set
             {
-                _hasError = value; 
+                _hasError = value;
                 OnPropertyChanged();
             }
         }
@@ -23,7 +36,7 @@ namespace Model
             get { return _isEstablished; }
             set
             {
-                _isEstablished = value; 
+                _isEstablished = value;
                 OnPropertyChanged();
             }
         }

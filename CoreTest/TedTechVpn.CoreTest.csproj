@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3D5A9D9-6CB2-4906-A79D-27F9679689A0}</ProjectGuid>
+    <ProjectGuid>{C31FF2DA-67EC-49B6-9D05-E77CBD44DBC0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TedTechVpn.Model</RootNamespace>
-    <AssemblyName>TedTechVpn.Model</AssemblyName>
+    <RootNamespace>TedTechVpn.CoreTest</RootNamespace>
+    <AssemblyName>TedTechVpn.CoreTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,17 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\packages\FakeItEasy.1.25.2\lib\net40\FakeItEasy.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core">
+      <HintPath>..\packages\FluentAssertions.3.3.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,52 +51,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PasswortProviderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs">
-      <DependentUpon>VpnModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VpnConnection.cs">
-      <DependentUpon>VpnModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VpnModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VpnModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VpnModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VpnModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VpnModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VpnModel.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="VpnModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VpnModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="VpnModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VpnModel.edmx</DependentUpon>
-      <LastGenOutput>VpnModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="VpnModel.edmx.diagram">
-      <DependentUpon>VpnModel.edmx</DependentUpon>
-    </None>
-    <None Include="VpnModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VpnModel.edmx</DependentUpon>
-      <LastGenOutput>VpnModel.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\Core\TedTechVpn.Core.csproj">
+      <Project>{7FA65C0D-8662-474C-8E04-1C391B7B48E8}</Project>
+      <Name>TedTechVpn.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

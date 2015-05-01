@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Security;
 using System.Text;
-using Model;
+using TedTechVpn.Model;
 
-namespace Core
+namespace TedTechVpn.Core
 {
     public class LoginMonitor : ILoginMonitor
     {

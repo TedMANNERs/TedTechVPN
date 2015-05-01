@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Net;
 using DotRas;
-using Model;
+using TedTechVpn.Model;
 
-namespace Core
+namespace TedTechVpn.Core
 {
     public class VpnConnectionProvider : IVpnConnectionProvider
     {

@@ -1,4 +1,4 @@
-namespace UserInterface
+namespace TedTechVpn.UserInterface
 {
     public partial class AppView
     {

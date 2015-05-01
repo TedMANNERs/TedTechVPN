@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace UserInterface
+namespace TedTechVpn.UserInterface.ViewModels
 {
     public interface IViewModel
     {
