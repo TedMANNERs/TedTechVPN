@@ -8,8 +8,8 @@ namespace TedTechVpn.Core
 {
     public class VpnConnectionProvider : IVpnConnectionProvider
     {
-        private readonly ILoginMonitor _loginMonitor;
         private readonly RasDialer _dialer;
+        private readonly ILoginMonitor _loginMonitor;
         private readonly RasPhoneBook _phoneBook;
         private RasEntry _entry;
 
@@ -42,11 +42,11 @@ namespace TedTechVpn.Core
                     return true;
                 }
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
                 Disconnect();
             }
-            catch (RasException e)
+            catch (RasException)
             {
                 Disconnect();
             }
