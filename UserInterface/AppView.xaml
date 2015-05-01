@@ -19,11 +19,11 @@
             <Button Content="-" DockPanel.Dock="Right" Width="30" Margin="10,0" Command="{Binding RemoveCommand}" />
         </DockPanel>
         <DataGrid Grid.Row="1" ItemsSource="{Binding VpnConnections}" SelectedItem="{Binding SelectedConnection}"
-                  IsManipulationEnabled="True" IsReadOnly="{Binding IsReadOnly}"
-                  AutoGenerateColumns="False" RowHeight="30" GridLinesVisibility="None">
+                  IsManipulationEnabled="True" IsReadOnly="{Binding IsReadOnly}" 
+                  AutoGenerateColumns="False" RowHeight="30" GridLinesVisibility="None" RowEditEnding="DataGrid_RowEditEnding">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Hostname" Binding="{Binding VpnConnection.Hostname}" Width="*" />
-                <DataGridTextColumn Header="Port" Binding="{Binding VpnConnection.Port}" Width="50" />
+                <DataGridTextColumn Header="Hostname" Binding="{Binding Connection.Hostname, UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="Port" Binding="{Binding Connection.Port, UpdateSourceTrigger=PropertyChanged}" Width="50" />
             </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">

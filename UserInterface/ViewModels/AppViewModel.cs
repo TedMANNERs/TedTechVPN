@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Input;
 using TedTechVpn.Core;
@@ -62,7 +63,7 @@ namespace TedTechVpn.UserInterface.ViewModels
 
         private void Connect()
         {
-            IsConnected = _vpnProvider.Connect(SelectedConnection.VpnConnection);
+            IsConnected = _vpnProvider.Connect(SelectedConnection.Connection);
             SelectedConnection.HasError = !IsConnected;
             SelectedConnection.IsEstablished = IsConnected;
         }
@@ -82,6 +83,12 @@ namespace TedTechVpn.UserInterface.ViewModels
 
         private void RemoveConnection()
         {
+            using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
+            {
+                dbContext.VpnConnection.Attach(SelectedConnection.Connection);
+                dbContext.Entry(SelectedConnection.Connection).State = EntityState.Deleted;
+                dbContext.SaveChanges();
+            }
             VpnConnections.Remove(SelectedConnection);
         }
 
@@ -91,6 +98,27 @@ namespace TedTechVpn.UserInterface.ViewModels
             LoginMonitor.User = new User();
             Disconnect();
             RequestSwitch(new SwitchViewEventArgs("Login"));
+        }
+
+        public void SaveConnectionChanges()
+        {
+            if (SelectedConnection == null)
+                return;
+
+            using (TedTechVPNEntities dbContext = new TedTechVPNEntities())
+            {
+                if (dbContext.VpnConnection.Any(x => x.Id == SelectedConnection.Connection.Id))
+                {
+                    dbContext.VpnConnection.Attach(SelectedConnection.Connection);
+                    dbContext.Entry(SelectedConnection.Connection).State = EntityState.Modified;
+                }
+                else
+                {
+                    SelectedConnection.Connection.IsActive = true;
+                    dbContext.Entry(SelectedConnection.Connection).State = EntityState.Added;
+                }
+                dbContext.SaveChanges();
+            }
         }
     }
 }

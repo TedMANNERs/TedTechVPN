@@ -10,8 +10,8 @@ namespace TedTechVpn.UserInterface.ViewModels
         public delegate void SwitchViewEventHandler(object sender, SwitchViewEventArgs e);
 
         public ILoginMonitor LoginMonitor { get; set; }
-
         public string Name { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void RequestSwitch(SwitchViewEventArgs e)
         {
@@ -19,7 +19,6 @@ namespace TedTechVpn.UserInterface.ViewModels
             if (eventHandler != null) eventHandler(this, e);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         public event SwitchViewEventHandler Switch;
 
         [NotifyPropertyChangedInvocator]
