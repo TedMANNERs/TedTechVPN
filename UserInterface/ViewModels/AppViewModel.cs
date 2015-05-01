@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Core;
 using TedTechVpn.Core;
 using TedTechVpn.Model;
 
