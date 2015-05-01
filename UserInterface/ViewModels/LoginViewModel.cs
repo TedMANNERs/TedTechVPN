@@ -34,8 +34,7 @@ namespace TedTechVpn.UserInterface.ViewModels
         {
             try
             {
-                Task<bool> loginTask = Task<bool>.Factory.StartNew(() => LoginMonitor.Login());
-                bool loginSuccessful = loginTask.Result;
+                bool loginSuccessful = LoginMonitor.Login();
                 if (loginSuccessful)
                 {
                     ErrorMessage = string.Empty;
